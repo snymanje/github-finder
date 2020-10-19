@@ -1,31 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import UserItem from './UserItem';
+import Spinner from '../layouts/Spinner'
+import PropTypes from 'prop-types'
 
-class Users extends Component {
-    state = {
-        users: [
-            {
-                id: '1',
-                login: 'mojombo' ,
-                avatar_url: 'https://avatars2.githubusercontent.com/u/1?v=4,',
-                html_url: 'https://github.com/mojombo'
-            },
-            {
-                id: '44743839',
-                login: 'snymanje' ,
-                avatar_url: 'https://avatars2.githubusercontent.com/u/44743839?v=4,',
-                html_url: 'https://github.com/snymanje'
-            },
-            {
-                id: 3,
-                login: 'pjhyett' ,
-                avatar_url: 'https://avatars2.githubusercontent.com/u/3?v=4,',
-                html_url: 'https://github.com/pjhyett'
-            }
-        ]
-    }
-    render() {
-        const { users } = this.state;
+const Users = ({ users, loading}) => {
+    if(loading) {
+        return <Spinner />
+    } else {
         return (
             <div style={userStyle}>
                 {
@@ -35,7 +16,12 @@ class Users extends Component {
                 }
             </div>
         )
-    }
+    }     
+}
+
+Users.propTypes = {
+    users: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired
 }
 
 const userStyle = {
