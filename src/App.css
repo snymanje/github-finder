@@ -376,6 +376,11 @@ table th {
   margin-right: 0.6rem;
 }
 
+.bg-header {
+  background-color: #6b4e6a;
+  color: white;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
